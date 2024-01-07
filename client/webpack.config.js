@@ -47,11 +47,11 @@ const workerConfig = {
   plugins: [new WasmPackPlugin({ crateDirectory: path.resolve(__dirname, "../mandelbrot") })],
   resolve: {
     extensions: [".js", ".wasm"],
-    fallback: { util: require.resolve("util/"), long: require.resolve("long/") },
+    //fallback: { util: require.resolve("util/"), long: require.resolve("long/") },
   },
   output: { path: dist, filename: "worker.js" },
   //[DDR 2020-11-20] asyncWebAssembly is broken by webpack 5. (See https://github.com/rustwasm/wasm-bindgen/issues/2343)
-  experiments: { syncWebAssembly: true }
+  //experiments: { syncWebAssembly: true }
 };
 
 module.exports = [appConfig, workerConfig];
